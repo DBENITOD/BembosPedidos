@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'BembosPedidos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE' : os.getenv('DB_ENGINE'),
         'NAME' : os.getenv('DB_NAME'),
@@ -83,6 +83,12 @@ DATABASES = {
         'PASSWORD' : os.getenv('DB_PASSWORD'),
         'HOST' : os.getenv('DB_HOST'),
         'PORT' : os.getenv('DB_PORT')
+    }
+}'''
+DATABASES = {
+    'default': {
+        'ENGINE' : 'django.db.backends.sqlite3',
+        'NAME' : os.path.join(BASE_DIR,'bembos'),
     }
 }
 

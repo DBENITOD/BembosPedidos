@@ -13,8 +13,8 @@ from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
 
-#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BembosPedidos.settings')
-env_path = Path('.')/ '.env'
-load_dotenv(dotenv_path=env_path)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BembosPedidos.settings')
+#env_path = Path('.')/ '.env'
+#load_dotenv(dotenv_path=env_path)
 
 application = get_wsgi_application()
