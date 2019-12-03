@@ -3,7 +3,9 @@ from rest_framework import generics, viewsets, filters, permissions
 from .models import Category ,Document_type, Invoice, Orders, Order_details, Supplies
 from .serializers import CategorySerializers, SuppliesSerializers ,DocumentTypeSerializers, InvoiceSerializers, OrderDetailsSerializers, OrdersSerializers
 
-# Create your views here.
+# Create your views here. Se debe crear los modelos condicionados para el 
+#almacenamiento aqui
+
 class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializers
     queryset = Category.objects.all()
