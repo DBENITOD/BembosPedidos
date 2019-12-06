@@ -1,1 +1,1 @@
-web: gunicorn project.wsgi
+web: gunicorn BembosPedidos.wsgi --log-file -

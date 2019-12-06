@@ -4,27 +4,26 @@ from django.urls import path, include
 from .views import CategoryViewSet, SuppliesViewSet, DocumentTypeViewSet, InvoiceViewSet, OrdersViewSet, OrderDetailsViewSet
 from rest_framework import routers
 
-'''
-router = routers.DefaultRouter()
-router.register(r'category', CategoryViewSet)
-router.register(r'documenttype', DocumentTypeViewSet)
-router.register(r'invoice', InvoiceViewSet)
-router.register(r'order', OrdersViewSet)
-router.register(r'orderdetails', OrderDetailsViewSet)
-router.register(r'supplies', SuppliesViewSet)
-#router.register(r'posts/<int:pk>', PostViewSet, basename='POST' )
-#router.register(r'tags', TagViewSet)
-'''
 
+router = routers.DefaultRouter()
+router.register('category', CategoryViewSet)
+router.register('documenttype', DocumentTypeViewSet)
+router.register('invoice', InvoiceViewSet)
+router.register('order', OrdersViewSet)
+router.register('orderdetails', OrderDetailsViewSet)
+router.register('supplies', SuppliesViewSet)
 urlpatterns = [
-    #router = routers.DefaultRouter()
-    url(r'^category/$', CategoryViewSet),
-    url(r'^documenttype/$', DocumentTypeViewSet),
-    url(r'^invoice/$', InvoiceViewSet),
-    url(r'^order/$', OrdersViewSet),
-    url(r'^orderdetails/$', OrderDetailsViewSet),
-    url(r'^supplies/$', SuppliesViewSet),    
-    #path('pedidos/', include(router.urls))
+
+    path('pedidos/', include(router.urls))
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+    
+    #url(r'^category/$', CategoryViewSet),
+    #url(r'^documenttype/$', DocumentTypeViewSet),
+    #url(r'^invoice/$', InvoiceViewSet),
+    #url(r'^order/$', OrdersViewSet),
+    #url(r'^orderdetails/$', OrderDetailsViewSet),
+    #url(r'^supplies/$', SuppliesViewSet),      
+
+
+#urlpatterns = format_suffix_patterns(urlpatterns)

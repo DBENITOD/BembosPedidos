@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BembosPedidos.settings')
 
 #env_path = Path('.')/ '.env'
