@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'apps.pedidos'
 ]
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #new
+    'django.middleware.common.CommonMiddleware', #new
 ]
 
 ROOT_URLCONF = 'BembosPedidos.urls'
@@ -161,6 +164,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5
 }
 
+#CORS
+CORS_ORIGIN_ALLOW_ALL = True
 
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT = 'media'
