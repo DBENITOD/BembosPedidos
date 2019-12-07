@@ -121,9 +121,10 @@ class Orders(models.Model):
     #cod_order = models.CharField(max_length=18)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     nickname = models.CharField(max_length=30)
-    id_invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
+    id_invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE, related_name="comprobante")
     
     class Meta:
+        unique_together = ['id_invoice', 'id']
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
         ordering = ['id']
@@ -135,11 +136,12 @@ class Orders(models.Model):
 class Order_details(models.Model):
     id = models.AutoField(primary_key=True)
     quantity = models.IntegerField(blank=False, null=False)
-    id_orders = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    id_orders = models.ForeignKey(Orders, on_delete=models.CASCADE, related_name="comprobanted")
     sub_total = models.DecimalField(max_digits=12, decimal_places=2)
-    id_supplies = models.ForeignKey(Supplies, on_delete=models.CASCADE)
+    id_supplies = models.ForeignKey(Supplies, on_delete=models.CASCADE, related_name="ingredientes")
     
     class Meta:
+        unique_together = ['id_orders', 'id']
         verbose_name = 'Order Details'
         verbose_name_plural = 'Orders Details'
         ordering = ['id_orders']
