@@ -2,9 +2,17 @@ from django.shortcuts import render
 from rest_framework import generics, viewsets, filters, permissions
 from .models import Category ,Document_type, Invoice, Orders, Order_details, Supplies
 from .serializers import CategorySerializers, SuppliesSerializers ,DocumentTypeSerializers, InvoiceSerializers, OrderDetailsSerializers, OrdersSerializers
+from .serializers import UserSerializers
+from django.contrib.auth.models import User
+#Authentication
+class UserViewSet(viewsets.ModelViewSet):
+    serializer_class = UserSerializers
+    queryset = User.objects.all()
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('username', )
 
 # Create your views here. Se debe crear los modelos condicionados para el 
-#almacenamiento aqui
+#almacenamiento aqui    
 
 class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializers

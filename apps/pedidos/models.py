@@ -4,7 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 
-
 # Create your models here.
 '''class Rol(models.Model):
     id = models.AutoField(primary_key=True)
@@ -115,7 +114,7 @@ class Invoice(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return self.order
+        return str(self.order)
 
 class Orders(models.Model):
     id = models.AutoField(primary_key=True)

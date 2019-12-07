@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.urls import path, include
 from .views import CategoryViewSet, SuppliesViewSet, DocumentTypeViewSet, InvoiceViewSet, OrdersViewSet, OrderDetailsViewSet
+from .views import UserViewSet
 from rest_framework import routers
 
 
@@ -12,6 +13,7 @@ router.register('invoice', InvoiceViewSet)
 router.register('order', OrdersViewSet)
 router.register('orderdetails', OrderDetailsViewSet)
 router.register('supplies', SuppliesViewSet)
+router.register('user', UserViewSet)
 urlpatterns = [
 
     path('pedidos/', include(router.urls))

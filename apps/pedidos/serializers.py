@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Document_type,Category, Invoice, Orders, Order_details, Supplies
+from django.contrib.auth.models import User
+
 
 class DocumentTypeSerializers(serializers.ModelSerializer):
     class Meta:
@@ -29,4 +31,9 @@ class OrderDetailsSerializers(serializers.ModelSerializer):
 class SuppliesSerializers(serializers.ModelSerializer):
     class Meta:
         model = Supplies
+        fields = '__all__'
+
+class UserSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = User
         fields = '__all__'
